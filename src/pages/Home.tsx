@@ -18,7 +18,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.8 }}
             >
-              Otimize seus atendimentos com <br /> nossas fichas de Anamnesys <br /> personalizadas!
+              OTIMIZE SEUS ATENDIMENTOS<br /> COM FICHAS <br /> DE ANAMNESE PERSONALIZADAS!
             </Title>
             <Desc
               as={motion.p} 
@@ -26,7 +26,7 @@ const Home = () => {
               animate={{ opacity: 1, x: 0 }} 
               transition={{ duration: 0.8 }}
             >
-              Simplifique o processo de coleta e organização de informações essenciais com nossas fichas de anamnesys inteligentes e intuitivas! Seja para saúde, educação, negócios ou outros setores, ofereça uma experiência prática, organizada e personalizada para seus clientes e pacientes.
+              Agilize a coleta e organização de informações essenciais com fichas de anamnese inteligentes e intuitivas. Nossa solução oferece praticidade e personalização para diversos setores, como saúde, educação e negócios, garantindo uma experiência mais organizada e eficiente tanto para você quanto para seus clientes e pacientes.
             </Desc>
 
             <motion.div
