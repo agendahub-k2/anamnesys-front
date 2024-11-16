@@ -118,7 +118,6 @@ export const Register = () => {
 
                     {/* Título e Logo */}
                     <section className="flex flex-col justify-center items-center mb-8">
-                        <h1 className={`text-center ${Size.EXTRALARGE} font-[sansation-regular]`}>Criar conta</h1>
                         <div className="w-[40%]">
                             <img src={logo1} alt="Logo" className="w-full" />
                         </div>
