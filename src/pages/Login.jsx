@@ -18,10 +18,10 @@ const iconTemplate = "bg-[url(assets/img/backgrounds/login/background_login_litt
 const logo3 = "bg-[url(./assets/logo.png)]";
 
 export const Login = () => {
-  const navigate = useNavigate(); // Hook de navegação
+  const navigate = useNavigate(); 
 
   const handleBackClick = () => {
-    navigate("/"); // Redireciona para a página Home
+    navigate("/"); 
   };
 
   return (
@@ -32,12 +32,12 @@ export const Login = () => {
             <div className="flex flex-col w-full p-5 py-[20px] lg:py-[30px] lg:w-1/2">
               <section className="w-full flex justify-between px-[12px]">
                 <div>
-                  {/* Altera a navegação para voltar à Home */}
+                  
                   <IconButton
                     id='iconBack'
                     image={iconBack}
                     style='w-[3vh] h-[3vh] max-w-[30px] max-h-[30px]'
-                    onClick={handleBackClick} // Função que navega para a home
+                    onClick={handleBackClick} 
                   />
                 </div>
                 <div>

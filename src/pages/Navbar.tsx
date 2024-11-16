@@ -47,13 +47,12 @@ const Navbar = () => {
           <NavLink to='/ajuda'>AJUDA</NavLink>
 
           <ButtonContainer isMenuOpen={isMenuOpen}>
-            
             <Link to='/login'>
-              <Button primary>LOGIN</Button>
+              <Button blue>LOGIN</Button>
             </Link>
-           
-            <Link to='/REGISTER'>
-              <Button>SIGN UP</Button>
+
+            <Link to='/register'>
+              <Button white>SIGN UP</Button>
             </Link>
           </ButtonContainer>
         </Nav>
@@ -85,7 +84,7 @@ const NavbarContainer = styled.div`
 
 const NavbarWrap = styled.div`
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -196,16 +195,22 @@ const NavLink = styled(Link)<NavLinkProps>`
 const ButtonContainer = styled.div<ButtonContainerProps>`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start; 
   align-items: center;
   gap: 15px;
+  position: absolute;
+  left: 1000px; /* Distância do lado direito da tela */
+  top: 50%; 
+  transform: translateY(-50%); 
+  width: auto; 
 
   @media (max-width: 768px) {
     display: ${({ isMenuOpen }) => (isMenuOpen ? 'flex' : 'none')};
+    right: 10px; 
   }
 `;
 
-const Button = styled.div<ButtonProps>`
+const Button = styled.div<ButtonProps & { blue?: boolean; white?: boolean }>`
   width: 130px;
   height: 40px;
   font-size: 16px;
@@ -214,14 +219,18 @@ const Button = styled.div<ButtonProps>`
   line-height: 40px;
   border-radius: 25px;
   cursor: pointer;
-  background: ${({ primary }) => (primary ? '#add8e6' : '#fff')};
-  color: ${({ primary }) => (primary ? '#000' : '#add8e6')};
-  border: 2px solid #add8e6;
+  background: ${({ blue }) =>
+    blue
+      ? 'linear-gradient(to right, #0072ff, #00c6ff)' 
+      : '#fff'}; // Fundo branco para SIGN UP
+  color: ${({ blue }) => (blue ? '#fff' : '#0072ff')}; 
+  border: 2px solid #0072ff; 
   transition: all 0.3s ease;
 
   &:hover {
-    background: ${({ primary }) => (primary ? '#87ceeb' : '#f1f1f1')};
-    border-color: ${({ primary }) => (primary ? '#87ceeb' : '#add8e6')};
+    background: #000; /* Fundo preto no hover */
+    color: #fff; /* Texto branco no hover */
+    border-color: #000; /* Borda preta no hover */
   }
 
   @media (max-width: 768px) {
