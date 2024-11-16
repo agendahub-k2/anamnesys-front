@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 import React from 'react';
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Certifique-se de que o CSS do Toastify está importado
+import "react-toastify/dist/ReactToastify.css";
 
 import { Size, SizeBox, CButton, Background } from "../styles/LoginAndRegister/styles";
 import { Button1 } from "../components/Button1/Button1";
