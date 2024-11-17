@@ -223,7 +223,7 @@ const Button = styled.div<ButtonProps & { blue?: boolean; white?: boolean }>`
     blue
       ? 'linear-gradient(to right, #0072ff, #00c6ff)' 
       : '#fff'}; // Fundo branco para SIGN UP
-  color: ${({ blue }) => (blue ? '#fff' : '#0072ff')}; 
+  color: #000; // Sempre define o texto em preto
   border: 2px solid #0072ff; 
   transition: all 0.3s ease;
 
@@ -240,6 +240,7 @@ const Button = styled.div<ButtonProps & { blue?: boolean; white?: boolean }>`
     line-height: 35px;
   }
 `;
+
 
 const HamburgerIcon = styled.div`
   display: none;
