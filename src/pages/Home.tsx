@@ -6,58 +6,78 @@ import styled from 'styled-components';
 
 import backgroundImage from '../assets/background_login.png';
 import logo from '../assets/logo.png';
+import Service from './Service'; 
+import Planos from './Planos'; 
+import Modelos from './Modelos'; 
+import Ajuda from './Ajuda'; 
+import Footer from './Footer';
 
 interface SectionProps {
-  background?: string;
+  background?: string; 
 }
 
 const Home = () => {
   return (
-    <Section background={`url(${backgroundImage}) no-repeat center center/cover`}>
-      <Content>
-        <Left>
-          <Title
-            as={motion.h1}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            OTIMIZE SEUS ATENDIMENTOS<br /> COM FICHAS <br /> DE ANAMNESE PERSONALIZADAS!
-          </Title>
-          <Desc
-            as={motion.p}
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <strong>
-              Agilize a coleta e organização de informações essenciais com fichas de anamnese inteligentes e intuitivas. Nossa solução oferece praticidade e personalização para diversos setores, como saúde, educação e negócios, garantindo uma experiência mais organizada e eficiente tanto para você quanto para seus clientes e pacientes.
-            </strong>
-          </Desc>
+    <>
+      <Section background={`url(${backgroundImage}) no-repeat center center/cover`}>
+        <Content>
+          <Left>
+            <Title
+              as={motion.h1}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              OTIMIZE SEUS ATENDIMENTOS<br /> COM FICHAS <br /> DE ANAMNESE PERSONALIZADAS!
+            </Title>
+            <Desc
+              as={motion.p}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <strong>
+                Agilize a coleta e organização de informações essenciais com fichas de anamnese inteligentes e intuitivas. Nossa solução oferece praticidade e personalização para diversos setores, como saúde, educação e negócios, garantindo uma experiência mais organizada e eficiente tanto para você quanto para seus clientes e pacientes.
+              </strong>
+            </Desc>
 
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.8 }}
+            >
+              <StyledButton as={Link} to="/Register">
+                <span>Clique aqui e realize seu cadastro</span>
+                <MdKeyboardArrowRight size={30} />
+              </StyledButton>
+            </motion.div>
+          </Left>
+        </Content>
+
+        <LogoContainer>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, scale: 0.8 }} 
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
           >
-            <StyledButton as={Link} to="/Register">
-              <span>Clique aqui e realize seu cadastro</span>
-              <MdKeyboardArrowRight size={30} />
-            </StyledButton>
+            <Logo src={logo} alt="Logo" />
           </motion.div>
-        </Left>
-      </Content>
+        </LogoContainer>
+      </Section>
 
-      <LogoContainer>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }} 
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: 'easeOut' }}
-        >
-          <Logo src={logo} alt="Logo" />
-        </motion.div>
-      </LogoContainer>
-    </Section>
+      {/* Ajuste para Service e Planos */}
+      <ServiceContainer>
+        <Service /> 
+      </ServiceContainer>
+
+      <PlanosContainer>
+        <Planos />
+      </PlanosContainer>
+
+      <Modelos />
+      <Ajuda />
+      <Footer />
+    </>
   );
 };
 
@@ -177,4 +197,16 @@ const Logo = styled.img`
   width: 1000px;
   height: auto;
   object-fit: contain;
+`;
+
+const ServiceContainer = styled.div`
+  position: relative;
+  top: -50px; /* Ajuste a posição para o meio das seções */
+  padding-top: 50px;
+`;
+
+const PlanosContainer = styled.div`
+  position: relative;
+  top: -30px; /* Ajuste a distância entre Planos e Home */
+  padding-top: 30px;
 `;

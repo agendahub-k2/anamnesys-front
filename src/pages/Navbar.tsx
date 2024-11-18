@@ -1,67 +1,67 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import LogoImg from '../assets/logo.png';
-import styled from 'styled-components';
+  import React, { useState } from 'react';
+  import { Link } from 'react-router-dom';
+  import LogoImg from '../assets/logo.png';
+  import styled from 'styled-components';
 
-interface NavProps {
-  isMenuOpen: boolean;
-}
+  interface NavProps {
+    isMenuOpen: boolean;
+  }
 
-interface ButtonProps {
-  primary?: boolean;
-}
+  interface ButtonProps {
+    primary?: boolean;
+  }
 
-interface NavLinkProps {
-  to: string;
-}
+  interface NavLinkProps {
+    to: string;
+  }
 
-interface ButtonContainerProps {
-  isMenuOpen: boolean;
-}
+  interface ButtonContainerProps {
+    isMenuOpen: boolean;
+  }
 
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const Navbar = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    const toggleMenu = () => {
+      setIsMenuOpen(!isMenuOpen);
+    };
+
+    return (
+      <NavbarContainer>
+        <NavbarWrap>
+          <Link to='/'>
+            <Logo>
+              <img src={LogoImg} alt="Logo" />
+            </Logo>
+          </Link>
+
+          <HamburgerIcon onClick={toggleMenu}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </HamburgerIcon>
+
+          <Nav isMenuOpen={isMenuOpen}>
+            <NavLink to='/Planos'>PLANOS</NavLink>
+            <NavLink to='/Modelos'>MODELOS</NavLink>
+            <NavLink to='/Ajuda'>AJUDA</NavLink>
+
+            <ButtonContainer isMenuOpen={isMenuOpen}>
+              <Link to='/login'>
+                <Button blue>LOGIN</Button>
+              </Link>
+
+              <Link to='/register'>
+                <Button white>SIGN UP</Button>
+              </Link>
+            </ButtonContainer>
+          </Nav>
+        </NavbarWrap>
+      </NavbarContainer>
+    );
   };
 
-  return (
-    <NavbarContainer>
-      <NavbarWrap>
-        <Link to='/'>
-          <Logo>
-            <img src={LogoImg} alt="Logo" />
-          </Logo>
-        </Link>
-
-        <HamburgerIcon onClick={toggleMenu}>
-          <div></div>
-          <div></div>
-          <div></div>
-        </HamburgerIcon>
-
-        <Nav isMenuOpen={isMenuOpen}>
-          <NavLink to='/planos'>PLANOS</NavLink>
-          <NavLink to='/modelos'>MODELOS</NavLink>
-          <NavLink to='/ajuda'>AJUDA</NavLink>
-
-          <ButtonContainer isMenuOpen={isMenuOpen}>
-            <Link to='/login'>
-              <Button blue>LOGIN</Button>
-            </Link>
-
-            <Link to='/register'>
-              <Button white>SIGN UP</Button>
-            </Link>
-          </ButtonContainer>
-        </Nav>
-      </NavbarWrap>
-    </NavbarContainer>
-  );
-};
-
-export default Navbar;
+  export default Navbar;
 
 const NavbarContainer = styled.div`
   width: 100%;

@@ -4,25 +4,17 @@ import { motion } from 'framer-motion';
 
 import backgroundImage from '../assets/background_login.png'; 
 import logo from '../assets/logo.png'; 
+import Footer from './Footer';  // Certifique-se de que o Footer está no mesmo diretório ou ajuste o caminho
 
 const Plans = () => {
   return (
     <PlansContainer>
-      
       <BackgroundImage />
 
       <LogoContainer>
-        <motion.div
-          initial={{ rotateY: 0 }}
-          animate={{ rotateY: 360 }}
-          transition={{ repeat: Infinity, duration: 5, ease: 'linear' }}
-          style={{ transformOrigin: 'center' }}  
-        >
-          <Logo src={logo} alt="Logo" />
-        </motion.div>
+        <Logo src={logo} alt="Logo" />
       </LogoContainer>
 
-      
       <TextContainer>
         <PlansText
           as={motion.h1}
@@ -33,6 +25,9 @@ const Plans = () => {
           PLANOS
         </PlansText>
       </TextContainer>
+
+      {/* Footer adicionado aqui */}
+      
     </PlansContainer>
   );
 };
@@ -94,11 +89,11 @@ const LogoContainer = styled.div`
   position: absolute;
   left: 50%;  
   top: 50%;  
-  transform: translate(-00%, -50%); /* Centraliza a logo */
+  transform: translate(-50%, -50%); /* Centraliza a logo */
 `;
 
 const Logo = styled.img`
-  width: 1000px; /* Aumentar o tamanho da logo */
+  width: 1000px; /* Tamanho grande da logo */
   height: auto;
   object-fit: contain;
 `;
