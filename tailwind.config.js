@@ -6,6 +6,13 @@ export default {
   ],
   theme: {
     extend: {},
+    container: {
+      center: true,
+    padding: {
+      Default: "20px",
+      md: "40px",
+    },
+    },
   },
   plugins: [
     require('tailwind-scrollbar')
