@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-./.idea
+./idea
 /dist
 /.pnp
 .pnp.js
@@ -23,3 +23,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.idea/anamnesys-front.iml
+.idea/misc.xml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/workspace.xml
