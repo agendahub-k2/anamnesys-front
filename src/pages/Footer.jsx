@@ -56,7 +56,7 @@ const Footer = () => {
                 <ul className="flex flex-col gap-3">
                   <li>
                     <ScrollLink
-                      to="planos"  // ID da seção de Planos
+                      to="Planos"  // ID da seção de Planos
                       smooth={true}  // Ativar rolagem suave
                       duration={500}  // Duração da rolagem
                       className="cursor-pointer transition-all duration-300 hover:translate-x-[2px]"
@@ -66,7 +66,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <ScrollLink
-                      to="modelos"  
+                      to="Modelos"  
                       smooth={true}
                       duration={500}
                       className="cursor-pointer transition-all duration-300 hover:translate-x-[2px]"
@@ -76,7 +76,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <ScrollLink
-                      to="ajuda"  
+                      to="Ajuda"  
                       smooth={true}
                       duration={500}
                       className="cursor-pointer transition-all duration-300 hover:translate-x-[2px]"
@@ -86,7 +86,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      to="/login" 
+                      to="/Login" 
                       className="cursor-pointer transition-all duration-300 hover:translate-x-[2px]"
                     >
                       Login

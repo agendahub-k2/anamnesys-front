@@ -201,12 +201,12 @@ const Logo = styled.img`
 
 const ServiceContainer = styled.div`
   position: relative;
-  top: -50px; /* Ajuste a posição para o meio das seções */
+  top: -150px; /* Ajuste a posição para o meio das seções */
   padding-top: 50px;
 `;
 
 const PlanosContainer = styled.div`
   position: relative;
-  top: -30px; /* Ajuste a distância entre Planos e Home */
+  top: -200px; /* Ajuste a distância entre Planos e Home */
   padding-top: 30px;
 `;

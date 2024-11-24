@@ -1,124 +1,71 @@
-import React from 'react';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import React from "react";
+import backgroundImage from "../assets/background_login.png";
+import logo from "../assets/logo.png";
+import Footer from "./Footer"; // Certifique-se de ajustar o caminho conforme necessário
 
-import backgroundImage from '../assets/background_login.png'; 
-import logo from '../assets/logo.png'; 
-import Footer from './Footer';  // Certifique-se de que o Footer está no mesmo diretório ou ajuste o caminho
-
-const Plans = () => {
+const Models = () => {
   return (
-    <PlansContainer>
-      <BackgroundImage />
+    <div
+      className="relative flex flex-col items-center justify-center min-h-screen bg-cover bg-center"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+      {/* Logo */}
+      <div className="absolute top-10"></div>
 
-      <LogoContainer>
-        <Logo src={logo} alt="Logo" />
-      </LogoContainer>
+      {/* Título */}
+      <h1 className="text-white text-4xl md:text-6xl font-bold mt-16 mb-8 text-center"></h1>
 
-      <TextContainer>
-        <PlansText
-          as={motion.h1}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          MODELOS
-        </PlansText>
-      </TextContainer>
+      {/* Grid de Modelos */}
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl px-4">
+        {/* Modelo Básico */}
+        <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fadeInUp">
+          <h2 className="text-2xl font-semibold mb-2 text-gray-800">
+            Modelo Básico
+          </h2>
+          <p className="text-gray-600 mb-4">
+            Simples e funcional, ideal para iniciantes.
+          </p>
+          <ul className="text-sm text-gray-700 space-y-2">
+            <li>✔ Interface clean</li>
+            <li>✔ Fácil configuração</li>
+            <li>✔ Suporte básico</li>
+          </ul>
+        </div>
 
-      {/* Footer adicionado aqui */}
-      
-    </PlansContainer>
+        {/* Modelo Avançado */}
+        <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fadeInUp delay-150">
+          <h2 className="text-2xl font-semibold mb-2 text-gray-800">
+            Modelo Avançado
+          </h2>
+          <p className="text-gray-600 mb-4">
+            Repleto de funcionalidades para profissionais.
+          </p>
+          <ul className="text-sm text-gray-700 space-y-2">
+            <li>✔ Design moderno</li>
+            <li>✔ Integrações extras</li>
+            <li>✔ Personalização completa</li>
+          </ul>
+        </div>
+
+        {/* Modelo Premium */}
+        <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fadeInUp delay-300">
+          <h2 className="text-2xl font-semibold mb-2 text-gray-800">
+            Modelo Premium
+          </h2>
+          <p className="text-gray-600 mb-4">
+            O melhor desempenho para grandes demandas.
+          </p>
+          <ul className="text-sm text-gray-700 space-y-2">
+            <li>✔ Recursos avançados</li>
+            <li>✔ Suporte dedicado</li>
+            <li>✔ Relatórios detalhados</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Footer */}
+    </div>
   );
 };
 
-export default Plans;
-
-const PlansContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: url(${backgroundImage}) no-repeat center center;
-  background-size: cover;
-  position: relative;
-  overflow: hidden;
-`;
-
-const BackgroundImage = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-`;
-
-const Navbar = styled.nav`
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  position: absolute;
-  top: 20px;
-  width: 100%;
-  z-index: 10;
-`;
-
-const NavbarLink = styled.a`
-  font-size: 20px;
-  font-weight: 500;
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #4c91f1;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 16px;
-  }
-`;
-
-const LogoContainer = styled.div`
-  position: absolute;
-  left: 50%;  
-  top: 50%;  
-  transform: translate(-50%, -50%); /* Centraliza a logo */
-`;
-
-const Logo = styled.img`
-  width: 1000px; /* Tamanho grande da logo */
-  height: auto;
-  object-fit: contain;
-`;
-
-const TextContainer = styled.div`
-  position: absolute;
-  bottom: 20px;
-  padding: 0 20px;
-  text-align: center;
-  z-index: 10;
-`;
-
-const PlansText = styled.h1`
-  font-size: 100px; /* Tamanho bem grande */
-  color: #000; /* Cor preta */
-  font-weight: 600;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  font-family: 'Poppins', sans-serif;
-
-  @media (max-width: 768px) {
-    font-size: 80px; /* Menor em telas médias */
-  }
-
-  @media (max-width: 480px) {
-    font-size: 60px; /* Menor em telas pequenas */
-  }
-`;
+export default Models;
