@@ -43,7 +43,8 @@ export const Login = () => {
       if (response.ok) {
         const data = await response.json();
         console.log('Login bem-sucedido:', data);
-        navigate('/home'); // Navega para a página inicial ou dashboard após login bem-sucedido
+        localStorage.setItem('authenticated', JSON.stringify(data));
+        navigate('/backoffice'); 
       } else {
 
         console.log(response)
