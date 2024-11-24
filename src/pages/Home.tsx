@@ -1,25 +1,27 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { MdKeyboardArrowRight } from 'react-icons/md';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { motion } from "framer-motion";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-import backgroundImage from '../assets/background_login.png';
-import logo from '../assets/logo.png';
-import Service from './Service'; 
-import Planos from './Planos'; 
-import Modelos from './Modelos'; 
-import Ajuda from './Ajuda'; 
-import Footer from './Footer';
+import backgroundImage from "../assets/background_login.png";
+import logo from "../assets/logo.png";
+import Service from "./Service";
+import Planos from "./Planos";
+import Modelos from "./Modelos";
+import Ajuda from "./Ajuda";
+import Footer from "./Footer";
 
 interface SectionProps {
-  background?: string; 
+  background?: string;
 }
 
 const Home = () => {
   return (
     <>
-      <Section background={`url(${backgroundImage}) no-repeat center center/cover`}>
+      <Section
+        background={`url(${backgroundImage}) no-repeat center center/cover`}
+      >
         <Content>
           <Left>
             <Title
@@ -28,7 +30,8 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              OTIMIZE SEUS ATENDIMENTOS<br /> COM FICHAS <br /> DE ANAMNESE PERSONALIZADAS!
+              OTIMIZE SEUS ATENDIMENTOS
+              <br /> COM FICHAS <br /> DE ANAMNESE PERSONALIZADAS!
             </Title>
             <Desc
               as={motion.p}
@@ -37,13 +40,18 @@ const Home = () => {
               transition={{ duration: 0.8 }}
             >
               <strong>
-                Agilize a coleta e organização de informações essenciais com fichas de anamnese inteligentes e intuitivas. Nossa solução oferece praticidade e personalização para diversos setores, como saúde, educação e negócios, garantindo uma experiência mais organizada e eficiente tanto para você quanto para seus clientes e pacientes.
+                Agilize a coleta e organização de informações essenciais com
+                fichas de anamnese inteligentes e intuitivas. Nossa solução
+                oferece praticidade e personalização para diversos setores, como
+                saúde, educação e negócios, garantindo uma experiência mais
+                organizada e eficiente tanto para você quanto para seus clientes
+                e pacientes.
               </strong>
             </Desc>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }} 
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
               <StyledButton as={Link} to="/Register">
@@ -56,9 +64,9 @@ const Home = () => {
 
         <LogoContainer>
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }} 
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: 'easeOut' }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
           >
             <Logo src={logo} alt="Logo" />
           </motion.div>
@@ -66,7 +74,7 @@ const Home = () => {
       </Section>
 
       {/* Ajuste para Service e Planos */}
-      <ServiceContainer>
+      {/* <ServiceContainer>
         <Service /> 
       </ServiceContainer>
 
@@ -75,7 +83,7 @@ const Home = () => {
       </PlanosContainer>
 
       <Modelos />
-      <Ajuda />
+      <Ajuda /> */}
       <Footer />
     </>
   );
@@ -88,7 +96,7 @@ const Section = styled.section<SectionProps>`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: ${(props) => props.background || '#f0f0f0'};
+  background: ${(props) => props.background || "#f0f0f0"};
   background-size: cover;
   background-position: center;
   position: relative;
@@ -168,9 +176,7 @@ const StyledButton = styled.button`
 
   &:focus {
     outline: none;
-    box-shadow:
-      0 0 0 3px var(--btn-bg-color),
-      0 0 0 6px var(--btn-bg-2);
+    box-shadow: 0 0 0 3px var(--btn-bg-color), 0 0 0 6px var(--btn-bg-2);
   }
 
   @keyframes pulse512 {
