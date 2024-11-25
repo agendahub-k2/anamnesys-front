@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import Navigation from '../components/Navigation';
-import CadastroCliente from '../components/CadastroCliente';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import Navigation from "../components/Navigation";
+import CadastroCliente from "../components/CadastroCliente.tsx";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Cliente = () => {
   const [clientes, setClientes] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-  const authenticated = localStorage.getItem('authenticated');
+  const authenticated = localStorage.getItem("authenticated");
 
   useEffect(() => {
     if (authenticated) {
@@ -33,13 +33,13 @@ const Cliente = () => {
         `http://localhost:8080/${user.id}/patientId/find`,
         {
           params: {
-            name: searchTerm || '', // Se não houver termo de busca, envia vazio
+            name: searchTerm || "", // Se não houver termo de busca, envia vazio
             page: currentPage - 1,
             size: 8,
           },
           headers: {
             Authorization: `Bearer ${user.token}`,
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
@@ -84,9 +84,9 @@ const Cliente = () => {
     <Container>
       <Navigation />
       <ContentArea>
-        <SearchInput 
-          type="text" 
-          placeholder="Filtrar por nome" 
+        <SearchInput
+          type="text"
+          placeholder="Filtrar por nome"
           value={searchTerm}
           onChange={handleSearchChange}
         />
@@ -103,7 +103,7 @@ const Cliente = () => {
               </tr>
             </thead>
             <tbody>
-              {clientes.map(cliente => (
+              {clientes.map((cliente) => (
                 <tr key={cliente.id}>
                   <td>{cliente.name}</td>
                   <td>{cliente.email}</td>
@@ -116,7 +116,7 @@ const Cliente = () => {
 
         <Pagination>
           {[...Array(totalPages)].map((_, index) => (
-            <PageButton 
+            <PageButton
               key={index + 1}
               onClick={() => handlePageChange(index + 1)}
               active={currentPage === index + 1}
@@ -163,8 +163,9 @@ const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  
-  th, td {
+
+  th,
+  td {
     padding: 12px;
     text-align: left;
     border: 1px solid #ddd;
@@ -188,8 +189,8 @@ const Pagination = styled.div`
 const PageButton = styled.button<{ active?: boolean }>`
   padding: 8px 16px;
   border: 1px solid #0072ff;
-  background-color: ${({ active }) => (active ? '#0072ff' : 'white')};
-  color: ${({ active }) => (active ? 'white' : '#0072ff')};
+  background-color: ${({ active }) => (active ? "#0072ff" : "white")};
+  color: ${({ active }) => (active ? "white" : "#0072ff")};
   border-radius: 5px;
   cursor: pointer;
 
