@@ -87,27 +87,48 @@ const FormContainer = styled.form`
   gap: 10px;
   margin-top: 20px;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 2px solid #0072ff;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: #f0f8ff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    font-weight: bold; /* Deixa o texto em negrito */
+    color: #0072ff; /* Opcional: adiciona uma cor vibrante */
+    margin-bottom: 10px;
+  }
 `;
+
 
 const Input = styled.input`
   padding: 10px;
-  font-size: 1rem;
+  font-size: 1.3rem;
   border-radius: 4px;
-  border: 1px solid #ddd;
+  border: 2px solid #0072ff;
   width: 100%;
+  background-color: #ffffff;
+  color: #333;
+
+  &:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 5px #0056b3;
+  }
 `;
 
 const SubmitButton = styled.button`
   padding: 10px 20px;
-  font-size: 1rem;
+  font-size: 1.4rem;
   color: white;
   background-color: #0072ff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
 
   &:disabled {
     background-color: #ccc;
@@ -116,8 +137,10 @@ const SubmitButton = styled.button`
 `;
 
 const ErrorMessage = styled.p`
-  color: red;
-  font-size: 0.9rem;
+  color: #ff4d4d;
+  font-size: 1.1rem;
+  font-weight: bold;
 `;
+
 
 export default CadastroCliente;

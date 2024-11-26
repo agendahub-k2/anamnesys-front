@@ -8,6 +8,7 @@ import Modelos from "./pages/Modelos";
 import Planos from "./pages/Planos";
 import Backoffice from "./pages/Backoffice";
 import Cliente from "./pages/Cliente";
+import DetalhesCliente from "./pages/DetalhesCliente";
 
 function App() {
   const location = useLocation();
@@ -40,6 +41,10 @@ function App() {
         <Route
           path="/clientes"
           element={token ? <Cliente /> : <Navigate to="/" />}
+        />
+                <Route
+          path="/:userId/patientId/:patientId"
+          element={token ? <DetalhesCliente /> : <Navigate to="/" />}
         />
       </Routes>
     </div>

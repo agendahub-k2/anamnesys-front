@@ -104,7 +104,11 @@ const Cliente = () => {
             </thead>
             <tbody>
               {clientes.map((cliente) => (
-                <tr key={cliente.id}>
+                <tr
+                  key={cliente.id}
+                  onClick={() => navigate(`/${user.id}/patientId/${cliente.id}`)}
+                  style={{ cursor: "pointer" }}
+                >
                   <td>{cliente.name}</td>
                   <td>{cliente.email}</td>
                   <td>{cliente.phone}</td>
@@ -120,6 +124,7 @@ const Cliente = () => {
               key={index + 1}
               onClick={() => handlePageChange(index + 1)}
               active={currentPage === index + 1}
+              aria-label={`Página ${index + 1}`} // Isso é para acessibilidade, pode ser útil
             >
               {index + 1}
             </PageButton>
@@ -147,10 +152,18 @@ const SearchInput = styled.input`
   padding: 10px;
   font-size: 1rem;
   border-radius: 4px;
-  border: 1px solid #ddd;
+  border: 2px solid #0072ff;
   margin-bottom: 20px;
   width: 250px;
   align-self: flex-start;
+  background-color: #f0f8ff;
+  color: #333;
+
+  &:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 5px #0056b3;
+  }
 `;
 
 const LoadingMessage = styled.div`
@@ -164,19 +177,46 @@ const Table = styled.table`
   border-collapse: collapse;
   margin-bottom: 20px;
 
-  th,
+  th {
+    padding: 12px;
+    text-align: left;
+    background-color: #0072ff;
+    color: white;
+    border: 1px solid #0056b3;
+    font-size: 1.2rem; /* Aumenta o tamanho da fonte dos cabeçalhos */
+    font-weight: bold;
+  }
+
   td {
     padding: 12px;
     text-align: left;
     border: 1px solid #ddd;
+    font-size: 1.4rem; /* Aumenta o tamanho da fonte das células */
+    font-weight: bold;
   }
 
-  th {
-    background-color: #f4f4f4;
+  tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+
+  tr:nth-child(even) {
+    background-color: #eef7ff;
   }
 
   tr:hover {
-    background-color: #f9f9f9;
+    background-color: #dbeeff;
+  }
+
+  th:nth-child(1) {
+    width: 40%; /* Aumenta a largura da coluna Nome */
+  }
+
+  th:nth-child(2) {
+    width: 30%; /* Define a largura da coluna Email */
+  }
+
+  th:nth-child(3) {
+    width: 30%; /* Define a largura da coluna Telefone */
   }
 `;
 
@@ -188,19 +228,20 @@ const Pagination = styled.div`
 
 const PageButton = styled.button<{ active?: boolean }>`
   padding: 8px 16px;
-  border: 1px solid #0072ff;
-  background-color: ${({ active }) => (active ? "#0072ff" : "white")};
+  border: 2px solid #0072ff;
+  background-color: ${({ active }) => (active ? "#0056b3" : "white")};
   color: ${({ active }) => (active ? "white" : "#0072ff")};
   border-radius: 5px;
   cursor: pointer;
 
   &:hover {
-    background-color: #0072ff;
+    background-color: #0056b3;
     color: white;
   }
 
   &:focus {
     outline: none;
+    box-shadow: 0 0 5px #0072ff;
   }
 `;
 
